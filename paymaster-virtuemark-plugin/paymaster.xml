@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<extension  version="3.0" type="plugin" group="vmpayment">
+    <name>Paymaster</name>
+    <author>Alex A</author>
+    <creationDate>April 2020</creationDate>
+    <authorEmail>awa77@mail.ru</authorEmail>
+    <license>http://www.gnu.org/licenses/gpl-3.0.html GNU/GPL</license>
+    <version>3.0.1</version>
+    <description>Paymaster Payment Plugin</description>
+    <files>
+        <filename plugin="paymaster">paymaster.php</filename>
+        <folder>images</folder>
+        <folder>language</folder>
+    </files>
+    <languages>
+        <language tag="en-GB">en-GB.plg_vmpayment_paymaster.ini</language>
+        <language tag="ru-RU">ru-RU.plg_vmpayment_paymaster.ini</language>
+    </languages>
+    <vmconfig>
+        <fields name="params" addfieldpath="/plugins/vmpayment/paymaster/fields">
+            <fieldset name="basic">
+                <field name="payment_logos" scope="com_virtuemart" type="vmfiles" label="PLG_PAYMASTER_VM3_LOGO"
+                       directory="/plugins/vmpayment/paymaster/images"
+                       default="default" hide_default="1" hide_none="1" stripext="0" exclude="^_"/>
+                <field name="merchant_id" type="text" label="PLG_PAYMASTER_VM3_MERCHANT_ID"/>
+                <field name="secret_key" type="text" label="PLG_PAYMASTER_VM3_SECRET_KRY"/>
+                <field name="hash_method" type="list" default="sha256" label="PLG_PAYMASTER_VM3_HASH_METHOD" description="PLG_PAYMASTER_VM3_HASH_METHOD_DESC">
+                    <option value="md5">md5</option>
+                    <option value="sha1">sha1</option>
+                    <option value="sha256">sha256</option>
+                </field>
+                <field name="status_success" type="vmorderstate" scope="com_virtuemart" default="C"
+                       label="PLG_PAYMASTER_VM3_STATUS_SUCCESS"
+                       description="PLG_PAYMASTER_VM3_STATUS_SUCCESS_EXPLAIN"/>
+                <field name="status_pending" type="vmorderstate" scope="com_virtuemart" default="P"
+                       label="PLG_PAYMASTER_VM3_STATUS_PENDING"
+                       description="PLG_PAYMASTER_VM3_STATUS_PENDING_EXPLAIN"/>
+                <field name="status_canceled" type="vmorderstate" scope="com_virtuemart" default="X"
+                       label="PLG_PAYMASTER_VM3_STATUS_FAILED"
+                       description="PLG_PAYMASTER_VM3_STATUS_FAILED_EXPLAIN"/>
+                <field name="product_nds" type="list" default="no_vat" label="PLG_PAYMASTER_VM3_VAT_PRODUCT" description="PLG_PAYMASTER_VM3_VAT_PRODUCT_DESC">
+                    <option value="no_vat">без НДС</option>
+                    <option value="vat0">НДС по ставке 0%</option>
+                    <option value="vat10">НДС чека по ставке 10%</option>
+                    <option value="vat18">НДС чека по ставке 18%</option>
+                    <option value="vat20">НДС чека по ставке 20%</option>
+                    <option value="vat110">НДС чека по расчетной ставке 10/110</option>
+                    <option value="vat118">НДС чека по расчетной ставке 18/118</option>
+                    <option value="vat120">НДС чека по расчетной ставке 20/120</option>
+                </field>
+                <field name="delivery_nds" type="list" default="no_vat" label="PLG_PAYMASTER_VM3_VAT_DELIVERY" description="PLG_PAYMASTER_VM3_VAT_DELIVERY_DESC">
+                    <option value="no_vat">без НДС</option>
+                    <option value="vat0">НДС по ставке 0%</option>
+                    <option value="vat10">НДС чека по ставке 10%</option>
+                    <option value="vat18">НДС чека по ставке 18%</option>
+                    <option value="vat20">НДС чека по ставке 20%</option>
+                    <option value="vat110">НДС чека по расчетной ставке 10/110</option>
+                    <option value="vat118">НДС чека по расчетной ставке 18/118</option>
+                    <option value="vat120">НДС чека по расчетной ставке 20/120</option>
+                </field>
+            </fieldset>
+        </fields>
+    </vmconfig>
+</extension>
